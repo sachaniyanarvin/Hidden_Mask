@@ -62,7 +62,7 @@ class CAPTURE_HAND:
 		DISPLAY = string.digits + string.letters + string.punctuation
 		FILTER = ''.join(((x if x in DISPLAY else '.') for x in map(chr, range(256))))
 		lines = []
-		for c in xrange(0, len(src), length):
+		for c in range(0, len(src), length):
 			chars = src[c:c+length]
 			hex = ' '.join(["%02x" % ord(x) for x in chars])
 			if len(hex) > 24:
@@ -173,9 +173,11 @@ class CAPTURE_HAND:
 			_mic_ = hmac.new(_ptk[0:16], self.payload, hashlib.sha1).hexdigest()[:32]
 			if self.mic == _mic or self.mic == _mic_:
 				self.pull.use("CRACKED! Key Found %s[%s]%s" % (self.pull.GREEN, _pass, self.pull.END))
-				self.pull.right("PMK =>"); print self.hexdump(_pmk)
-				self.pull.right("PTK =>"); print self.hexdump(_ptk)
-				self.pull.right("MIC =>"); print self.hexdump(_mic if self.mic == _mic else _mic_)
+				self.pull.right("PMK =>")
+				print(self.hexdump(_pmk))
+				self.pull.right("PTK =>"); print(self.hexdump(_ptk))
+				self.pull.right("MIC =>")
+				print(self.hexdump(_mic if self.mic == _mic else _mic_))
 				return
 			else:
 				if _pass != self.passes[-1]:
@@ -196,7 +198,7 @@ class CAPTURE_PMKID:
 		DISPLAY = string.digits + string.letters + string.punctuation
 		FILTER = ''.join(((x if x in DISPLAY else '.') for x in map(chr, range(256))))
 		lines = []
-		for c in xrange(0, len(src), length):
+		for c in range(0, len(src), length):
 			chars = src[c:c+length]
 			hex = ' '.join(["%02x" % ord(x) for x in chars])
 			if len(hex) > 24:
@@ -270,8 +272,10 @@ class CAPTURE_PMKID:
 			(_pass, _pmk) = self.crack(_pm, _ap, _cl, _ess)
 			if _pass:
 				self.pull.use("CRACKED! Key Found %s[%s]%s" % (self.pull.GREEN, _pass, self.pull.END))
-				self.pull.right("PMK =>"); print self.hexdump(_pmk)
-				self.pull.right("PMKID =>"); print self.hexdump(_pm)
+				self.pull.right("PMK =>")
+				print(self.hexdump(_pmk))
+				self.pull.right("PMKID =>")
+				print(self.hexdump(_pm))
 			else:
 				self.pull.error("Not Found! Password Not in Dictionary.")
 

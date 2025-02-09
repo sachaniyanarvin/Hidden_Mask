@@ -91,7 +91,7 @@ class Display:
 
 	def get_size(self):
 		try:
-			from backports.shutil_get_terminal_size import get_terminal_size
+			from shutil import get_terminal_size
 			return get_terminal_size().columns
 		except:
 			return None

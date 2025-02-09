@@ -158,41 +158,41 @@ class Pully:
 		self.LINEUP = ''
 
 	def info(self, statement, *args, **kwargs):
-		print "%s[*]%s %s" % (self.BOLD+self.YELLOW, self.END, statement)
+		print("%s[*]%s %s" % (self.BOLD+self.YELLOW, self.END, statement))
 		return
 
 	def error(self, statement, *args, **kwargs):
-		print "%s[!]%s %s" % (self.BOLD+self.RED, self.END, statement)
+		print ("%s[!]%s %s" % (self.BOLD+self.RED, self.END, statement))
 		return
 
 	def up(self, statement, *args, **kwargs):
-		print "%s[^]%s %s" % (self.BOLD+self.BLUE, self.END, statement)
+		print ("%s[^]%s %s" % (self.BOLD+self.BLUE, self.END, statement))
 		return
 
 	def use(self, statement, *args, **kwargs):
-		print "%s[+]%s %s" % (self.BOLD+self.GREEN, self.END, statement)
+		print ("%s[+]%s %s" % (self.BOLD+self.GREEN, self.END, statement))
 		return
 
 	def question(self, statement, *args, **kwargs):
-		q = raw_input("%s[?]%s %s" % (self.BOLD+self.PURPLE, self.END, statement))
+		q = input("%s[?]%s %s" % (self.BOLD+self.PURPLE, self.END, statement))
 		return q
 
 	def delete(self, statement, *args, **kwargs):
-		print "%s[#]%s %s" % (self.BOLD+self.CYAN, self.END, statement)
+		print ("%s[#]%s %s" % (self.BOLD+self.CYAN, self.END, statement))
 		return
 
 	def special(self, statement, *args, **kwargs):
-		print "%s[~]%s %s" % (self.BOLD+self.RED, self.END, statement)
+		print ("%s[~]%s %s" % (self.BOLD+self.RED, self.END, statement))
 
 	def spacer(self, statement, *args, **kwargs):
-		print "    %s" % (statement)
+		print("    %s" % (statement))
 
 	def linebreak(self):
-		print "\n"
+		print("\n")
 		return
 
 	def right(self, statement, *args, **kwargs):
-		print "%s[>]%s %s" % (self.BOLD+self.DARKCYAN, self.END, statement)
+		print ("%s[>]%s %s" % (self.BOLD+self.DARKCYAN, self.END, statement))
 
 	def lineup(self, *args, **kwargs):
 		sys.stdout.write(self.LINEUP)
@@ -202,20 +202,20 @@ class Pully:
 		return random.choice(seq)
 
 	def logo(self):
-		print __log__ % (self.BOLD+self.random_picker(), self.END, self.BOLD, self.END)
+		print(__log__ % (self.BOLD+self.random_picker(), self.END, self.BOLD, self.END))
 
 	def help(self, _m):
 		if _m == 1:
-			print __1help__
+			print(__1help__)
 		elif _m == 2:
-			print __2help__
+			print (__2help__)
 		elif _m == 3:
-			print __3help__
+			print (__3help__)
 		elif _m == 4:
-			print __4help__
+			print (__4help__)
 
 	def modes(self):
-		print __mode__
+		print (__mode__)
 
 	def listTypes(self):
-		print __list__
+		print (__list__)
